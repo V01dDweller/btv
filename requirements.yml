@@ -1,0 +1,5 @@
+# file: requirements.yml
+---
+- V01dDweller.vim_install
+- V01dDweller.tmux_install
+...
