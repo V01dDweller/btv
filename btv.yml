@@ -56,6 +56,7 @@
         set -o pipefail
         /usr/local/bin/vim -c "helptags coc.nvim/doc/ | q"
       args:
+        chdir: '{{ vim_pack_dir }}'
         executable: /bin/bash
         creates: ~/.config/coc/extensions/package.json
       tags:
