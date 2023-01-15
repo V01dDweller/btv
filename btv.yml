@@ -171,6 +171,7 @@
         dest: ~/{{ item }}
       loop:
         - .LESS_TERMCAP
+        - .bash_profile
         - .bash_prompt.sh
         - .bashrc
       tags:
