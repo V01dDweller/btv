@@ -198,6 +198,7 @@
         src: tmux/{{ item }}
         dest: ~/{{ item }}
       loop:
+        - .tmux-status.conf
         - .tmux.clipboard.conf
         - .tmux.conf
       tags:
