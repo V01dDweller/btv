@@ -15,4 +15,7 @@ RUN /usr/bin/find /work -type f -exec chmod 0644 {} \;
 RUN chown -R test:test /work
 RUN sed -i 's/ALL$/NOPASSWD:ALL/' /etc/sudoers
 
+USER test
+RUN sudo mv -v /work /home/test
+WORKDIR /home/test
 CMD ["/bin/bash"]
