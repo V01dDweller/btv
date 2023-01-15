@@ -17,5 +17,8 @@ RUN sed -i 's/ALL$/NOPASSWD:ALL/' /etc/sudoers
 
 USER test
 RUN sudo mv -v /work /home/test
+WORKDIR /home/test/work
+RUN ansible-galaxy install -r requirements.yml
+RUN ansible-playbook -i localhost, btv.yml
 WORKDIR /home/test
 CMD ["/bin/bash"]
