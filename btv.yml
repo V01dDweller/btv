@@ -70,8 +70,10 @@
       loop:
         - autoload
         - bundle
+        - colors
       tags:
         - vim
+        - colors
         - plugins
 
     - name: Downloading Pathogen from GitHub
