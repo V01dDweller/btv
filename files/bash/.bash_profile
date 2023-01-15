@@ -104,3 +104,5 @@ if [ -f $HOME/.bash_prompt.sh ]
 then
   source ~/.bash_prompt.sh
 fi
+
+LANG=en_US.UTF-8; export LANG
