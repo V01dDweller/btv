@@ -105,4 +105,4 @@ then
   source ~/.bash_prompt.sh
 fi
 
-LANG=en_US.UTF-8; export LANG
+LANG=C.UTF-8; export LANG
