@@ -46,7 +46,7 @@
         repo: https://github.com/neoclide/coc.nvim.git
         depth: 1
         version: release
-        dest: '{{ vim_pack_dir }}/coc'
+        dest: '{{ vim_pack_dir }}/coc.nvim'
       tags:
         - coc
         - vim
