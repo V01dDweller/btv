@@ -1,0 +1,32 @@
+FROM centos:7
+
+ENV TERM linux
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN yum repolist
+RUN yum -y update
+RUN yum -y install epel-release
+
+RUN yum install -y git sudo vim curl
+RUN yum -y install bzip2-devel libffi-devel openssl11-devel zlib-devel
+RUN yum -y groupinstall "Development Tools"
+RUN curl -s https://www.python.org/ftp/python/3.10.9/Python-3.10.9.tgz | tar xz
+WORKDIR Python-3.10.9
+RUN /Python-3/10.9/configure --enable-optimizations
+RUN make altinstall
+RUN pip3 install ansible
+RUN groupadd test
+RUN useradd -c "Test User" -g test -G sudo -s /bin/bash -m test
+RUN mkdir -v /work
+COPY . /work
+RUN /usr/bin/find /work -type f -exec chmod 0644 {} \;
+RUN chown -R test:test /work
+RUN sed -i 's/ALL$/NOPASSWD:ALL/' /etc/sudoers
+
+USER test
+RUN sudo mv -v /work /home/test
+WORKDIR /home/test/work
+RUN ansible-galaxy install -r requirements.yml
+RUN ansible-playbook -i localhost, btv.yml
+WORKDIR /home/test
+CMD ["/bin/bash"]
