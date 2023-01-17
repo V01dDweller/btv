@@ -6,11 +6,10 @@ ENV LANG en_US.utf8
 # Update CentOS
 RUN yum repolist
 RUN yum -y update
-RUN yum -y install epel-release
 
-RUN yum install -y git sudo vim curl
-RUN yum -y install bzip2-devel libffi-devel openssl11-devel zlib-devel
 # Install dev tools
+RUN yum -y install epel-release
+RUN yum -y install git sudo vim curl bzip2-devel libffi-devel openssl11-devel zlib-devel
 RUN yum -y groupinstall "Development Tools"
 
 # Prepare OpenSSL 1.1 for Python build
