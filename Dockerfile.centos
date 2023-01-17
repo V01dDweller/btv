@@ -21,8 +21,8 @@ RUN ln -s /usr/include/openssl11 include
 
 # Download Python 3.10.9 source
 RUN curl -s https://www.python.org/ftp/python/3.10.9/Python-3.10.9.tgz | tar xz
-WORKDIR Python-3.10.9
 RUN /Python-3/10.9/configure --enable-optimizations
+WORKDIR "/Python-3.10.9"
 
 # Configure and build Python
 RUN make altinstall
