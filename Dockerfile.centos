@@ -26,11 +26,11 @@ RUN /Python-3/10.9/configure --enable-optimizations
 
 # Configure and build Python
 RUN make altinstall
-RUN pip3 install ansible
 
 # Clean up
 
 # Install Ansible
+RUN pip3.10 install ansible
 
 # Create a non-root user, allow sudo
 RUN groupadd test
