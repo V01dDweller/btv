@@ -32,15 +32,15 @@ to:
 git clone https://github.com/V01dDweller/btv.git
 ```
 
-2. CD into the `btv` directory.
+1. CD into the `btv` directory.
 
-3. Install Vim and Tmux roles from Ansible Galaxy:
+1. Install Vim and Tmux roles from Ansible Galaxy:
 
 ```sh
 ansible-galaxy install -r requirements.yml
 ```
 
-4. Run the playbook. To suppress inventory warnings, use `localhost,` as the
+1. Run the playbook. To suppress inventory warnings, use `localhost,` as the
 inventory, e.g.:
 
 ```sh
