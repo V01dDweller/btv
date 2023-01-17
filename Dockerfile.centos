@@ -1,7 +1,6 @@
 FROM centos:7
 
 ENV TERM linux
-ENV DEBIAN_FRONTEND noninteractive
 
 RUN yum repolist
 RUN yum -y update
