@@ -21,5 +21,29 @@ to:
 
 * Python 3.9 or newer
 * Ansible 2.10 or newer
+* Must be able to sudo-to-root as roles use `become` directive
+
+## Installation
+
+1. Clone this project
+
+```sh
+git clone https://github.com/V01dDweller/btv.git
+```
+
+2. CD into the `btv` directory.
+
+3. Install Vim and Tmux roles from Ansible Galaxy:
+
+```sh
+ansible-galaxy install -r requirements.yml
+```
+
+4. Run the playbook. To suppress inventory warnings, use `localhost,` as the
+inventory, e.g.:
+
+```sh
+ansible-playbook -i localhost, btv.yml
+```
 
 [modeline]: # ( vi: set number textwidth=78 colorcolumn=80 nowrap: )
