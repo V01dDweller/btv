@@ -28,7 +28,7 @@ Ansible. Of course this means a docker build with this file is much slower.
 
 * Python 3.9 or newer
 * Ansible 2.10 or newer
-* Must be able to sudo-to-root as roles use `become` directive
+* Must be able to sudo-to-root (roles use `become` directive)
 
 ## Installation
 
