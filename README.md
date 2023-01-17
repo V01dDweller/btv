@@ -53,4 +53,26 @@ inventory, e.g.:
 ansible-playbook -i localhost, btv.yml
 ```
 
+## Testing with Docker
+
+### Ubuntu (preferred)
+
+```sh
+docker build -t myubuntu:latest . -f Dockerfile.ubuntu
+docker run -d --name mytest_container sleep infinty
+docker exec -it mytest_container bash
+source .bash_profile
+```
+
+### CentOS (ymmv)
+
+```sh
+docker build -y mycentos:latest . -f Dockerfile.centos
+docker run -d --name mytest_container sleep infinity
+docker exec -it mytest_container bash
+source .bash_profile
+```
+
+At this point, bash, tmux and vim should work and have a matching theme.
+
 [modeline]: # ( vi: set number textwidth=78 colorcolumn=80 nowrap: )
