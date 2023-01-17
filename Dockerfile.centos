@@ -19,6 +19,7 @@ RUN ln -s /usr/lib64/openssl11 lib
 RUN ln -s /usr/include/openssl11 include
 
 # Download Python 3.10.9 source
+WORKDIR /
 RUN curl -s https://www.python.org/ftp/python/3.10.9/Python-3.10.9.tgz | tar xz
 WORKDIR "/Python-3.10.9"
 
