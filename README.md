@@ -14,6 +14,7 @@ to:
 
 ## Tested On
 
+* Ubuntu 20.04 (supports WSL 2)
 * Ubuntu 22.04 (supports WSL 2)
 * CentOS 7.9 or newer
 
