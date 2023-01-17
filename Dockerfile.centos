@@ -21,6 +21,7 @@ RUN ln -s /usr/include/openssl11 include
 # Download Python 3.10.9 source
 WORKDIR /
 RUN curl -s https://www.python.org/ftp/python/3.10.9/Python-3.10.9.tgz | tar xz
+RUN chown -R root:root /Python-3.10.9
 WORKDIR "/Python-3.10.9"
 
 # Configure and build Python
