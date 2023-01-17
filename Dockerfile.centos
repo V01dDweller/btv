@@ -10,6 +10,11 @@ RUN yum -y install epel-release
 RUN yum install -y git sudo vim curl
 RUN yum -y install bzip2-devel libffi-devel openssl11-devel zlib-devel
 RUN yum -y groupinstall "Development Tools"
+# Prepare OpenSSL 1.1 for Python build
+RUN mkdir /usr/local/openssl11
+WORKDIR /usr/local/openssl11
+RUN ln -s /usr/lib64/openssl11 lib
+RUN ln -s /usr/include/openssl11 include
 RUN curl -s https://www.python.org/ftp/python/3.10.9/Python-3.10.9.tgz | tar xz
 WORKDIR Python-3.10.9
 RUN /Python-3/10.9/configure --enable-optimizations
