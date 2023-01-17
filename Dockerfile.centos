@@ -28,6 +28,8 @@ RUN /Python-3/10.9/configure --enable-optimizations
 RUN make altinstall
 
 # Clean up
+WORKDIR /
+RUN rm -rf /Python-3.10.9
 
 # Install Ansible
 RUN pip3.10 install ansible
