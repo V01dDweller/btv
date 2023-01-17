@@ -18,6 +18,12 @@ to:
 * Ubuntu 22.04 (supports WSL 2)
 * CentOS 7.9 or newer
 
+**NOTE:** CentOS is version-locked to Ansible 2.9 which does not support fqcns
+used in these roles and playbooks. Ansible 2.10+ can be installed via pip3 but
+the Python 3 versions in CentOS 7 are ancient. Thus, the CentOS Dockerfile
+included here installs Python 3.10.9 from source, before pip-installing
+Ansible. Of course this means a docker build with this file is much slower.
+
 ## Requirements
 
 * Python 3.9 or newer
