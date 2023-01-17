@@ -30,6 +30,8 @@ RUN pip3 install ansible
 
 # Clean up
 
+# Install Ansible
+
 # Create a non-root user, allow sudo
 RUN groupadd test
 RUN useradd -c "Test User" -g test -G wheel -s /bin/bash -m test
