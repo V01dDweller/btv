@@ -32,7 +32,7 @@ RUN pip3 install ansible
 
 # Create a non-root user, allow sudo
 RUN groupadd test
-RUN useradd -c "Test User" -g test -G sudo -s /bin/bash -m test
+RUN useradd -c "Test User" -g test -G wheel -s /bin/bash -m test
 RUN mkdir -v /work
 COPY . /work
 RUN /usr/bin/find /work -type f -exec chmod 0644 {} \;
