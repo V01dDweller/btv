@@ -1,6 +1,7 @@
 FROM centos:7
 
 ENV TERM linux
+ENV LANG en_US.utf8
 
 RUN yum repolist
 RUN yum -y update
