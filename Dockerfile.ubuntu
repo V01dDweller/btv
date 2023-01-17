@@ -3,22 +3,33 @@ FROM ubuntu:22.04
 ENV TERM linux
 ENV DEBIAN_FRONTEND noninteractive
 
+# Update Ubuntu
 RUN apt-get update
 RUN apt-get install -y
 
+# Install dependencies
 RUN apt install -y git sudo vim curl python3 python3-pip
+
+# Pip-install Ansible for latest version
 RUN pip3 install ansible
+
+# Adding a non-root user
 RUN groupadd test
 RUN useradd -c "Test User" -g test -G sudo -s /bin/bash -m test
+
+# Copying playbook for non-root user
 RUN mkdir -v /work
 COPY . /work
 RUN /usr/bin/find /work -type f -exec chmod 0644 {} \;
 RUN chown -R test:test /work
 RUN sed -i 's/ALL$/NOPASSWD:ALL/' /etc/sudoers
 
+# Becoming non-root user
 USER test
 RUN sudo mv -v /work /home/test
 WORKDIR /home/test/work
+
+# Testing the playbook
 RUN ansible-galaxy install -r requirements.yml
 RUN ansible-playbook -i localhost, btv.yml
 WORKDIR /home/test
