@@ -110,6 +110,7 @@
           - {repo: 'edkolev/promptline.vim', version: 'master'}
           - {repo: 'tpope/vim-repeat', version: 'master'}
           - {repo: 'tpope/vim-surround', version: 'master'}
+          - {repo: 'github/copilot.vim', version: 'release'}
       tags:
         - vim
         - plugins
