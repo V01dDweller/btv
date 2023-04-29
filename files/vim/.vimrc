@@ -90,6 +90,9 @@ set scrolloff=2
 " Syntax highlighting
 syntax enable
 
+" Syntax highlighting in markdown code block
+let g:markdown_fenced_languages = [ 'bash=sh', 'bat=winbatch', 'c', 'cpp', 'css', 'dockerfile', 'fstab', 'html', 'Jenkinsfile', 'javascript', 'jinja2', 'ini=dosini', 'java', 'json', 'php', 'passwd', 'ps1', 'python', 'ruby', 'sh', 'sshconfig', 'sshdconfig', 'sudoers', 'systemd=dosini', 'tmux', 'vb', 'vim', 'xml', 'yaml', ]
+
 " Highlight current line
 set cursorline
 
