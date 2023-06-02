@@ -111,6 +111,7 @@
           - {repo: 'tpope/vim-repeat', version: 'master'}
           - {repo: 'tpope/vim-surround', version: 'master'}
           - {repo: 'github/copilot.vim', version: 'release'}
+          - {repo: '907th/vim-auto-save', version: 'master'}
       tags:
         - vim
         - plugins
