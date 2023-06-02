@@ -167,7 +167,7 @@ endfunction
 
 ".................... File Type Settings ...................."
 " Turn spell check on for these file types
-autocmd FileType markdown,text,html,man,manual :set spell
+autocmd FileType markdown,text,html,man,manual :set spell | syn match AcronymNoSpell '\<\(\u\|\d\)\{3,}s\?\>' contains=@NoSpell
 
 " Python 3 Omnicomplete
 autocmd FileType python set omnifunc=python3complete#Complete
