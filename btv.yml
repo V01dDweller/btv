@@ -208,3 +208,4 @@
 
 
 ...
+# vim: filetype=ansible syntax=yaml.ansible number relativenumber colorcolumn=80
