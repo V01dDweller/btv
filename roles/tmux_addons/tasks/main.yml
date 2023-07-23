@@ -17,8 +17,19 @@
     dest: ~/{{ item }}
     mode: '0644'
   loop:
-    - .tmux-status.conf
     - .tmux.clipboard.conf
     - .tmux.conf
+
+- name: Checking for existing .tmux-status.conf
+  ansible.builtin.stat:
+    path: ~/.tmux-status.conf
+  register: tmux_status_conf
+
+- name: Creating ~/.tmux-status.conf
+  ansible.builtin.copy:
+    src: .tmux-status.conf
+    dest: ~/.tmux-status.conf
+    mode: '0644'
+  when: not tmux_status_conf.stat.exists
 ...
 # vim: ft=ansible syntax=yaml.ansible nu nowrap relativenumber colorcolumn=80
