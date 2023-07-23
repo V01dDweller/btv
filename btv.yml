@@ -6,36 +6,6 @@
   gather_facts: false
   vars:
     vim_pack_dir: ~/.vim/pack/coc/start
-  pre_tasks:
-    - name: Checking for V01dDweller.vim_install role
-      ansible.builtin.stat:
-        path: ~/.ansible/roles/V01dDweller.vim_install
-      register: vim_role_check
-
-    - name: Stopping if vim_install role is not installed
-      ansible.builtin.fail:
-        msg: |
-          V01dDweller.vim_install role is not installed, run
-
-          ansible-galaxy install -r requirements.yml
-      when: not vim_role_check.stat.exists
-
-    - name: Checking for V01dDweller.tmux_install role
-      ansible.builtin.stat:
-        path: ~/.ansible/roles/V01dDweller.tmux_install
-      register: tmux_role_check
-      tags:
-        - tmuxcheck
-
-    - name: Stopping if tmux_install role is not installed
-      ansible.builtin.fail:
-        msg: |
-          V01dDweller.tmux_install role is not installed, run
-
-          ansible-galaxy install -r requirements.yml
-      when: not tmux_role_check.stat.exists
-      tags:
-        - tmuxcheck
   roles:
     - role: V01dDweller.vim_install
       tags: vim
