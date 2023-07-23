@@ -187,6 +187,7 @@
       ansible.builtin.copy:
         src: tmux/{{ item }}
         dest: ~/{{ item }}
+        mode: '0644'
       loop:
         - .tmux-status.conf
         - .tmux.clipboard.conf
