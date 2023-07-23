@@ -1,0 +1,24 @@
+# file: roles/tmux_addons/tasks/main.yml
+---
+- name: Creating ~/.tmux/plugins directory
+  ansible.builtin.file:
+    path: ~/.tmux/plugins
+    state: directory
+    mode: '0755'
+
+- name: Cloning tpm plugin from GitHub # noqa: latest
+  ansible.builtin.git:
+    repo: https://github.com/tmux-plugins/tpm
+    dest: ~/.tmux/plugins/tpm
+
+- name: Copying Tmux files
+  ansible.builtin.copy:
+    src: tmux/{{ item }}
+    dest: ~/{{ item }}
+    mode: '0644'
+  loop:
+    - .tmux-status.conf
+    - .tmux.clipboard.conf
+    - .tmux.conf
+...
+# vim: ft=ansible syntax=yaml.ansible nu nowrap relativenumber colorcolumn=80
