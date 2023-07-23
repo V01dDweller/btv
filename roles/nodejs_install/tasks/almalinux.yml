@@ -1,0 +1,8 @@
+# file: roles/nodejs_install/tasks/almalinux.yml
+---
+- name: Installing NodeJS
+  ansible.builtin.dnf:
+    name: '@nodejs:{{ node_version }}'
+    state: present
+...
+# vim: filetype=ansible syntax=yaml.ansible number relativenumber colorcolumn=80
