@@ -44,7 +44,7 @@
     repo: https://github.com/github/copilot.vim.git
     depth: 1
     version: release
-    dest: '{{ vim_coc_dir }}/copilot.vim'
+    dest: '{{ vim_copilot_dir }}/copilot.vim'
 
 - name: Downloading Pathogen from GitHub
   ansible.builtin.get_url:
