@@ -4,8 +4,6 @@
   hosts: localhost
   connection: local
   gather_facts: false
-  vars:
-    vim_pack_dir: ~/.vim/pack/coc/start
   roles:
     - role: V01dDweller.vim_install
       tags: vim
