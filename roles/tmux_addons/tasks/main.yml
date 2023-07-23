@@ -13,7 +13,7 @@
 
 - name: Copying Tmux files
   ansible.builtin.copy:
-    src: tmux/{{ item }}
+    src: '{{ item }}'
     dest: ~/{{ item }}
     mode: '0644'
   loop:
