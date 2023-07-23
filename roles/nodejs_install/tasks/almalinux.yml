@@ -4,5 +4,6 @@
   ansible.builtin.dnf:
     name: '@nodejs:{{ node_version }}'
     state: present
+  become: true
 ...
 # vim: filetype=ansible syntax=yaml.ansible number relativenumber colorcolumn=80
