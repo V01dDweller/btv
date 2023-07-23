@@ -82,7 +82,7 @@
           - {repo: 'vim-airline/vim-airline', version: 'master'}
           - {repo: 'vim-airline/vim-airline-themes', version: 'master'}
           - {repo: 'chrisbra/Colorizer', version: 'master'}
-          - {repo: 'airblade/vim-gitgutter', version: 'master'}
+          - {repo: 'airblade/vim-gitgutter', version: 'main'}
           - {repo: 'jvirtanen/vim-hcl', version: 'main'}
           - {repo: 'martinda/Jenkinsfile-vim-syntax', version: 'master'}
           - {repo: 'PProvost/vim-ps1', version: 'master'}
