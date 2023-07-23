@@ -1,21 +1,19 @@
 # file: roles/nodejs_install/tasks/main.yml
 ---
-- name: Installing NodeJS repo
-  ansible.builtin.shell: |
-    set -o pipefail
-    curl -fsSL https://deb.nodesource.com/setup_{{ node_version }}.x | bash
-  args:
-    executable: /bin/bash
-    creates: /etc/apt/sources.list.d/nodesource.list
-  become: true
-  tags: node
+- name: Gathering facts
+  ansible.builtin.setup:
+    gather_subset: min
 
-- name: Installing NodeJS {{ node_version }}
-  ansible.builtin.apt:
-    name: nodejs
-    state: present
-    update_cache: true
-  become: true
-  tags: node
+- name: Setting detected_os
+  ansible.builtin.set_fact:
+    detected_os: '{{ ansible_distribution }} {{ ansible_distribution_version }}'
+
+- name: Installing NodeJS for Ubuntu
+  ansible.builtin.include_tasks: ubuntu.yml
+  when: detected_os is search('Ubuntu')
+
+- name: Installing NodesJS for EL Linux
+  ansible.builtin.include_tasks: almalinux.yml
+  when: detected_os is search('AlmaLinux 8')
 ...
 # vim: filetype=ansible syntax=yaml.ansible number relativenumber colorcolumn=80
