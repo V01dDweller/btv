@@ -15,25 +15,12 @@
       tags: tmux
       become: true
 
+    - role: nodejs_install
+      tags:
+        - node
+        - nodejs
+
   post_tasks:
-    - name: Installing NodeJS repo
-      ansible.builtin.shell: |
-        set -o pipefail
-        curl -fsSL https://deb.nodesource.com/setup_{{ node_version }}.x | bash
-      args:
-        executable: /bin/bash
-        creates: /etc/apt/sources.list.d/nodesource.list
-      become: true
-      tags: node
-
-    - name: Installing NodeJS {{ node_version }}
-      ansible.builtin.apt:
-        name: nodejs
-        state: present
-        update_cache: true
-      become: true
-      tags: node
-
     - name: Creating {{ vim_pack_dir }}
       ansible.builtin.file:
         path: '{{ vim_pack_dir }}'
