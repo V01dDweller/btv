@@ -1,4 +1,4 @@
 # file: roles/nodejs_install/defaults/main.yml
 ---
-node_version: 19
+node_version: 18
 ...
