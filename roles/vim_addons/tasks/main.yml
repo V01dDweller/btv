@@ -80,8 +80,8 @@
 
 - name: Copying .vimrc and .gvimrc
   ansible.builtin.copy:
-    src: vim/{{ item }}
-    dest: ~/{{ item }}
+    src: '{{ item }}'
+    dest: '~/{{ item }}'
     mode: '0644'
   loop:
     - .vimrc
