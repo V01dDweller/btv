@@ -1,0 +1,86 @@
+# file: roles/vim_plugins/tasks/main.yml
+---
+- name: Creating Vim autoload, bundle and colors directories
+  ansible.builtin.file:
+    path: ~/.vim/{{ item }}
+    state: directory
+    mode: '0755'
+  loop:
+    - autoload
+    - bundle
+    - colors
+  loop_control:
+    label: Creating ~/.vim/{{ item }} directory
+
+- name: Creating Vim pack directories
+  ansible.builtin.file:
+    path: '{{ item }}'
+    state: directory
+    mode: '0755'
+  loop:
+    - '{{ vim_coc_dir }}'
+    - '{{ vim_github_dir }}'
+  loop_control:
+    label: Creating {{ item }} directory
+
+- name: Cloning Coc repo
+  ansible.builtin.git:
+    repo: https://github.com/neoclide/coc.nvim.git
+    depth: 1
+    version: release
+    dest: '{{ vim_coc_dir }}/coc.nvim'
+
+- name: Installing vim-coc plugin
+  ansible.builtin.shell: |
+    set -o pipefail
+    /usr/local/bin/vim -c "helptags coc.nvim/doc/ | q"
+  args:
+    chdir: '{{ vim_coc_dir }}'
+    executable: /bin/bash
+    creates: ~/.config/coc/extensions/package.json
+
+- name: Cloning copilot.vim repo
+  ansible.builtin.git:
+    repo: https://github.com/github/copilot.vim.git
+    depth: 1
+    version: release
+    dest: '{{ vim_coc_dir }}/copilot.vim'
+
+- name: Downloading Pathogen from GitHub
+  ansible.builtin.get_url:
+    url: "https://raw.githubusercontent.com/tpope/vim-pathogen/master/\
+          autoload/pathogen.vim"
+    dest: ~/.vim/autoload/pathogen.vim
+    mode: '0644'
+
+- name: Cloning Vim plugins from git
+  ansible.builtin.git:
+    repo: https://github.com/{{ item.repo }}
+    dest: ~/.vim/bundle/{{ item.repo | basename }}
+    depth: 1
+    version: '{{ item.version }}'
+  loop: '{{ vim_plugins }}'
+  loop_control:
+    label: Cloning {{ item.repo | basename }}
+
+- name: Downloading Vim color schemes
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/{{ item }}
+    dest: ~/.vim/colors/{{ item | basename }}
+    mode: '0644'
+  loop: '{{ vim_colors }}'
+  loop_control:
+    label: Cloning {{ item | basename }}
+  tags:
+    - colors
+
+- name: Copying .vimrc and .gvimrc
+  ansible.builtin.copy:
+    src: vim/{{ item }}
+    dest: ~/{{ item }}
+    mode: '0644'
+  loop:
+    - .vimrc
+    - .gvimrc
+...
+# vim: ft=ansible syntax=yaml.ansible nu nowrap relativenumber colorcolumn=80
