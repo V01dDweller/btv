@@ -21,6 +21,9 @@
         - node
         - nodejs
 
+    - role: tmux_addons
+      tags: tmux
+
   post_tasks:
     - name: Copying bash files
       ansible.builtin.copy:
