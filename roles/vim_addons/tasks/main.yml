@@ -30,6 +30,10 @@
     version: release
     dest: '{{ vim_coc_dir }}/coc.nvim'
 
+- name: Install NodeJS
+  ansible.builtin.include_role:
+    name: nodejs_install
+
 - name: Installing vim-coc plugin
   ansible.builtin.shell: |
     set -o pipefail

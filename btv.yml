@@ -16,11 +16,6 @@
       tags: tmux
       become: true
 
-    - role: nodejs_install
-      tags:
-        - node
-        - nodejs
-
     - role: tmux_addons
       tags: tmux
 
