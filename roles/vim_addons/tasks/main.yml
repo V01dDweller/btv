@@ -41,7 +41,7 @@
   args:
     chdir: '{{ vim_coc_dir }}'
     executable: /bin/bash
-    creates: ~/.config/coc/extensions/package.json
+    creates: ~/.config/coc
 
 - name: Cloning copilot.vim repo
   ansible.builtin.git:
