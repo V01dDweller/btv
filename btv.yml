@@ -10,14 +10,18 @@
       become: true
 
     - role: vim_addons
-      tags: vim
+      tags:
+        - vim
+        - vim_addons
 
     - role: V01dDweller.tmux_install
       tags: tmux
       become: true
 
     - role: tmux_addons
-      tags: tmux
+      tags:
+        - tmux
+        - tmux_addons
 
   post_tasks:
     - name: Copying bash files
