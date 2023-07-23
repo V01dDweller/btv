@@ -5,7 +5,6 @@
   connection: local
   gather_facts: false
   vars:
-    node_version: 19
     vim_pack_dir: ~/.vim/pack/coc/start
   roles:
     - role: V01dDweller.vim_install
