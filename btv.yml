@@ -37,32 +37,5 @@
         - .bashrc
       tags:
         - bash
-
-    - name: Creating ~/.tmux directory
-      ansible.builtin.file:
-        path: ~/.tmux/plugins
-        state: directory
-        mode: '0755'
-      tags:
-        - tmux
-
-    - name: Cloning tpm plugin from GitHub # noqa: latest
-      ansible.builtin.git:
-        repo: https://github.com/tmux-plugins/tpm
-        dest: ~/.tmux/plugins/tpm
-      tags:
-        - tmux
-
-    - name: Copying Tmux files
-      ansible.builtin.copy:
-        src: tmux/{{ item }}
-        dest: ~/{{ item }}
-        mode: '0644'
-      loop:
-        - .tmux-status.conf
-        - .tmux.clipboard.conf
-        - .tmux.conf
-      tags:
-        - tmux
 ...
 # vim: ft=ansible syntax=yaml.ansible nu nowrap relativenumber colorcolumn=80
