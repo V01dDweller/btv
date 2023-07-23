@@ -9,6 +9,9 @@
       tags: vim
       become: true
 
+    - role: vim_addons
+      tags: vim
+
     - role: V01dDweller.tmux_install
       tags: tmux
       become: true
