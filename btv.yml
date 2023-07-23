@@ -176,7 +176,7 @@
       tags:
         - tmux
 
-    - name: Cloning tpm plugin from GitHub
+    - name: Cloning tpm plugin from GitHub # noqa: latest
       ansible.builtin.git:
         repo: https://github.com/tmux-plugins/tpm
         dest: ~/.tmux/plugins/tpm
