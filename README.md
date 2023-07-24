@@ -85,4 +85,12 @@ source .bash_profile
 
 At this point, bash, tmux and vim should work and have a matching theme.
 
+## License
+
+BSD
+
+## Author Information
+
+By V01dDweller
+
 [modeline]: # ( vi: set number textwidth=78 colorcolumn=80 nowrap: )
