@@ -90,27 +90,19 @@
 - name: Reminding user to install some CoC plugins
   ansible.builtin.debug:
     msg: |
-      Remember to install some CoC plugins, for example:
+      Remember to install some CoC plugins.
 
-      * Ansible       - @yaegassy/coc-ansible
-      * CSS           - coc-css
-      * Docker        - coc-docker
-      * Go            - coc-go
-      * HTML          - coc-html
-      * Java          - coc-java
-      * json          - coc-json
-      * PowerShell    - coc-powershell
-      * Python        - coc-pyright
-      * Shell scripts - coc-sh
-      * Typescript    - coc-tsserver
-      * YAML          - coc-yaml
-
-    You can install them by running the following command in Vim:
-
-      CocInstall @yaegassy/coc-ansible coc-css coc-docker coc-go coc-html coc-java coc-json coc-powershell coc-pyright coc-sh coc-tsserver coc-yaml
-
-      or
-
-      vim -c 'CocInstall @yaegassy/coc-ansible coc-css coc-docker coc-go coc-html coc-java coc-json coc-powershell coc-pyright coc-sh coc-tsserver coc-yaml'
+          * Ansible       - @yaegassy/coc-ansible
+          * CSS           - coc-css
+          * Docker        - coc-docker
+          * Go            - coc-go
+          * HTML          - coc-html
+          * Java          - coc-java
+          * json          - coc-json
+          * PowerShell    - coc-powershell
+          * Python        - coc-pyright
+          * Shell scripts - coc-sh
+          * Typescript    - coc-tsserver
+          * YAML          - coc-yaml
 ...
 # vim: ft=ansible syntax=yaml.ansible nu nowrap relativenumber colorcolumn=80
