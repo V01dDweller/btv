@@ -9,6 +9,7 @@ to:
 * Add some Vim color schemes
 * Install the latest version of NodeJS
 * Install the Vim [Coc](https://github.com/neoclide/coc.nvim) plugin which requires NodeJS
+* Install the Vim GitHub Copilot plugin
 * Install TPM plugin for Tmux
 * Add my Bash, Tmux and Vim dotfiles
 
