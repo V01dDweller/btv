@@ -45,12 +45,76 @@ An Ubuntu Linux x64 host running version 20.04 or later. Note that the
 ## Variables
 
 - `vim_coc_dir` - Defaults to `~/.vim/pack/coc/start`. The directory where the
-  CoC git repo will be cloned. 
+  CoC git repo will be cloned.
 - `vim_copilot_dir` - Defaults to `vim_copilot_dir`. The  directory where the
   GitHub Copilot repo will be cloned.
 - `vim_plugins` - The list of vim plugins managed by Pathogen. Note that the
   list does not include CoC or GitHub Copilot. They must be installed
   separately.
+
+## A Note about CoC
+
+LSP extensions must be added manually to a fresh install of The Vim Conqueror
+of Completion (CoC) plugin-in.
+
+### Suggested CoC Extensions
+
+| Language      | Extension
+|---------------|----------------------
+| Ansible       | @yaegassy/coc-ansible
+| CSS           | coc-css
+| Docker        | coc-docker
+| Go            | coc-go
+| HTML          | coc-html
+| Java          | coc-java
+| json          | coc-json
+| PowerShell    | coc-powershell
+| Python        | coc-pyright
+| Shell scripts | coc-sh
+| Typescript    | coc-tsserver
+| YAML          | coc-yaml
+
+### Using a Vim command
+
+Start vim then issue:
+
+```
+:CocInstall coc-pyright @yaegassy/coc-ansible coc-sh coc-java coc-tsserver coc-html coc-json coc-powershell
+```
+
+### From the Shell
+
+```shell
+$ vim -c 'CocInstall  coc-pyright @yaegassy/coc-ansible coc-sh coc-java \
+coc-tsserver coc-html coc-json coc-powershell'
+```
+
+Note that you will remain in Vim with this method which is why this step is
+not in the Ansible role. If anyone figures out a non-interactive way to
+install these, please let me know.
+
+## A Note about GitHub Copilot
+
+GitHub Copilot requires:
+
+1. A [paid subscription](https://github.com/features/copilot)
+2. Initial setup:
+
+From a Vim session:
+
+```shell
+:Copilot setup
+
+First copy your one-time code: A123-B456
+Press ENTER to open GitHub in your browser
+Waiting (could take up to 5 seconds)
+```
+
+Visit https://github.com/login/device if no browser is available and
+copy/paste the `code:` into your browser to register and activate the Copilot
+plugin.
+
+---
 
 ## Example Playbook
 
