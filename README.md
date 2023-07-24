@@ -24,6 +24,15 @@ the Python 3 versions in CentOS 7 are ancient. Thus, the CentOS Dockerfile
 included here installs Python 3.10.9 from source, before pip-installing
 Ansible. Of course this means a docker build with this file is much slower.
 
+## To Do
+
+* Add roles for Bash and Git
+* Add MacOS support
+* Consider adding one or more roles for:
+  - MinTTY/Git Bash/WSLTTY
+  - iTerm
+  - VSCode
+
 ## Requirements
 
 * Python 3.9 or newer

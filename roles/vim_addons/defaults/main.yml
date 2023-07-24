@@ -1,0 +1,38 @@
+# file: roles/vim_addons/defaults/main.yml
+---
+vim_coc_dir: ~/.vim/pack/coc/start
+vim_copilot_dir: ~/.vim/pack/github/start
+vim_plugins:
+  - {repo: 'dense-analysis/ale', version: 'master'}
+  - {repo: 'vim-scripts/AnsiEsc.vim', version: 'master'}
+  - {repo: 'pearofducks/ansible-vim', version: 'master'}
+  - {repo: 'vim-airline/vim-airline', version: 'master'}
+  - {repo: 'vim-airline/vim-airline-themes', version: 'master'}
+  - {repo: 'chrisbra/Colorizer', version: 'master'}
+  - {repo: 'airblade/vim-gitgutter', version: 'main'}
+  - {repo: 'jvirtanen/vim-hcl', version: 'main'}
+  - {repo: 'martinda/Jenkinsfile-vim-syntax', version: 'master'}
+  - {repo: 'PProvost/vim-ps1', version: 'master'}
+  - {repo: 'tpope/vim-fugitive', version: 'master'}
+  - {repo: 'tpope/vim-vinegar', version: 'master'}
+  - {repo: 'chr4/nginx.vim', version: 'master'}
+  - {repo: 'vim-scripts/delview', version: 'master'}
+  - {repo: 'tommcdo/vim-lion', version: 'master'}
+  - {repo: 'dracula/vim', version: 'master'}
+  - {repo: 'preservim/nerdtree', version: 'master'}
+  - {repo: 'edkolev/tmuxline.vim', version: 'master'}
+  - {repo: 'edkolev/promptline.vim', version: 'master'}
+  - {repo: 'tpope/vim-repeat', version: 'master'}
+  - {repo: 'tpope/vim-surround', version: 'master'}
+  - {repo: 'github/copilot.vim', version: 'release'}
+  - {repo: '907th/vim-auto-save', version: 'master'}
+vim_colors:
+  - gosukiwi/vim-atom-dark/master/colors/atom-dark-256.vim
+  - baskerville/bubblegum/master/colors/bubblegum-256-dark.vim
+  - morhetz/gruvbox/master/colors/gruvbox.vim
+  - micke/vim-hybrid/master/colors/hybrid.vim
+  - tomasr/molokai/master/colors/molokai.vim
+  - jalvesaq/southernlights/master/colors/southernlights.vim
+  - wadackel/vim-dogrun/main/colors/dogrun.vim
+  - NLKNguyen/papercolor-theme/master/colors/PaperColor.vim
+...

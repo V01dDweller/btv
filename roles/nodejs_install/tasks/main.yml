@@ -1,0 +1,19 @@
+# file: roles/nodejs_install/tasks/main.yml
+---
+- name: Gathering facts
+  ansible.builtin.setup:
+    gather_subset: min
+
+- name: Setting detected_os
+  ansible.builtin.set_fact:
+    detected_os: '{{ ansible_distribution }} {{ ansible_distribution_version }}'
+
+- name: Installing NodeJS for Ubuntu
+  ansible.builtin.include_tasks: ubuntu.yml
+  when: detected_os is search('Ubuntu')
+
+- name: Installing NodesJS for EL Linux
+  ansible.builtin.include_tasks: almalinux.yml
+  when: detected_os is search('AlmaLinux 8')
+...
+# vim: filetype=ansible syntax=yaml.ansible number relativenumber colorcolumn=80

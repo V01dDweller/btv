@@ -1,0 +1,13 @@
+# file: roles/vim_plugins/meta/main.yml
+---
+galaxy_info:
+  author: V01dDweller
+  description: Install Vim plugins
+  company: The Galaxy Project
+  license: AFL v3.0
+  min_ansible_version: '2.9'
+  platforms:
+    - name: Ubuntu
+      release:
+        - all
+...
