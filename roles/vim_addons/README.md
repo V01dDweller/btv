@@ -32,17 +32,17 @@ A list of plugins, including
 1. [Tmuxline](https://github.com/edkolev/tmuxline.vim) - Tmux theme sync with Airline
 1. [Vinegar](https://github.com/tpope/vim-vinegar) - Better netrw?
 
-# Requirements
+## Requirements
 
 An Ubuntu Linux x64 host running version 20.04 or later. Note that the
 `become` directive is never used since these are intended for a non-root user.
 
-# Dependencies
+## Dependencies
 
 - Vim 9 or later. This may be installed via the package manager or via the
   `V01dDweller.vim_install` Ansible role.
 
-# Variables
+## Variables
 
 - `vim_coc_dir` - Defaults to `~/.vim/pack/coc/start`. The directory where the
   CoC git repo will be cloned. 
@@ -52,7 +52,7 @@ An Ubuntu Linux x64 host running version 20.04 or later. Note that the
   list does not include CoC or GitHub Copilot. They must be installed
   separately.
 
-# Example Playbook
+## Example Playbook
 
 ```yaml
 - name: Install Vim with addons
