@@ -14,6 +14,16 @@ if [ -d ~/Library/Python/3.7/bin ]; then
   export PATH=~/Library/Python/3.7/bin:$PATH
 fi
 
+# Add Homebrew to the PATH\
+if [ -d /opt/homebrew/bin ]; then
+  export PATH=/opt/homebrew/bin:$PATH
+fi
+
+# Add NodeJS to PATH
+if [ -d /opt/homebrew/Cellar/node@18/18.17.0/bin ];then
+  export PATH=/opt/homebrew/Cellar/node@18/18.17.0/bin:$PATH
+fi
+
 # MacOS GNU cureutils, e.g. after running 'brew install coreutils'
 if [ -d /usr/local/opt/coreutils/libexec/gnubin ]; then
   export PATH=/usr/local/opt/gnu-sed/libexec/gnubin:/usr/local/opt/grep/libexec/gnubin:/usr/local/opt/ncurses/bin:/usr/local/opt/coreutils/libexec/gnubin:$PATH
