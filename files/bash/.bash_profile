@@ -20,8 +20,8 @@ if [ -d /opt/homebrew/Cellar/node@18/18.17.0/bin ];then
 fi
 
 # MacOS GNU cureutils, e.g. after running 'brew install coreutils'
-if [ -d /usr/local/opt/coreutils/libexec/gnubin ]; then
-  export PATH=/usr/local/opt/gnu-sed/libexec/gnubin:/usr/local/opt/grep/libexec/gnubin:/usr/local/opt/ncurses/bin:/usr/local/opt/coreutils/libexec/gnubin:$PATH
+if [ -d /opt/homebrew/Cellar/coreutils/9.3/bin ]; then
+  export PATH=/opt/homebrew/Cellar/coreutils/9.3/bin:/opt/homebrew/Cellar/ncurses/6.4/bin/:$PATH
 fi
 
 # MacOS stop telling me about zsh
