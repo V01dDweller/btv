@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+if [ -z "$1" ]
+then
+  echo "Usage: "
+  echo ""
+  echo "vsyntax2html filename"
+  echo ""
+fi
+
+vim "$1" -s <(echo -e ":color PaperColor\n:set background=light nu\n:syntax on\n:TOhtml\n:w! $1.html\n:qa!")
+
+echo ""
+echo "Created $1.html"
+echo ""

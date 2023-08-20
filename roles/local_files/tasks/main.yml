@@ -1,0 +1,42 @@
+# file: roles/local_files/tasks/main.yml
+---
+- name: Creating local directories
+  ansible.builtin.file:
+    path: {{ ansible_user_dir }}/{{ item }}
+    state: directory
+    owner: '{{ ansible_user_id }}'
+    group: '{{ ansible_user_id }}'
+    mode: '0755'
+  become: false
+  loop:
+    - .local
+    - .local/bin
+    - console_logs
+    - sshlogs
+  loop_control:
+    label: Creating {{ ansible_user_dir }}/{{ item }}
+
+- name: Creating ssh client wrapper scripts
+  ansible.builtin.copy:
+    src: '{{ item }}'
+    dest: '{{ ansible_user_dir }}/.local/bin/{{ item }}'
+    owner: '{{ ansible_user_id }}'
+    group: '{{ ansible_user_id }}'
+    mode: 0755
+  become: false
+  loop:
+    - lssh
+    - tssh
+  loop_control:
+    label: Creating {{ ansible_user_dir }}/.local/bin/{{ item }}
+
+- name: Creating vim tohtml scripts
+  ansible.builtin.copy:
+    src: '{{ item }}'
+    dest: '{{ ansible_user_dir }}/.local/bin/{{ item }}'
+    owner: '{{ ansible_user_id }}''
+    group: '{{ ansible_user_id }}'
+    mode: '0755'
+  become: false
+...
+# vim: ft=ansible syntax=yaml.ansible nu nowrap relativenumber colorcolumn=80
