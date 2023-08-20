@@ -10,7 +10,8 @@
 
 - name: Installing NodeJS for Ubuntu
   ansible.builtin.include_tasks: ubuntu.yml
-  when: detected_os is search('Ubuntu')
+  when: detected_os is search('Ubuntu') or
+        detected_os is search('Kali')
 
 - name: Installing NodesJS for EL Linux
   ansible.builtin.include_tasks: almalinux.yml
