@@ -33,6 +33,7 @@
 - name: Installing NodeJS
   ansible.builtin.include_role:
     name: nodejs_install
+  tags: node
 
 - name: Installing vim-coc plugin
   ansible.builtin.shell: |
