@@ -451,8 +451,8 @@ if !has('gui_running') && !empty(glob("~/.vim/autoload/pathogen.vim"))
 
   let g:tmuxline_preset = {
       \'a'       : '#H',
-      \'win'     : '#I \ue0b1 #W',
-      \'cwin'    : '#I \ue0b1 #W',
+      \'win'     : '#I \ue0b1 #{b:pane_current_path}',
+      \'cwin'    : '#I \ue0b1 #{b:pane_current_path}',
       \'x'       : '%a %b %d',
       \'y'       : '%I:%M %p',
       \'z'       : '#S',
