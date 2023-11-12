@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # Get the aliases and functions
-if [ -f ~/.bashrc ]; then
-  . ~/.bashrc
+if [ -f "$HOME/.bashrc" ]; then
+  . "$HOME/.bashrc"
 fi
 
 # User specific environment and startup programs
@@ -28,10 +28,10 @@ fi
 # credit: https://www.addictivetips.com/mac-os/hide-default-interactive-shell-is-now-zsh-in-terminal-on-macos/
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
-# Add NodeJS to PATH
-if [ -d ~/.local/node ]
+# Add Linux NodeJS to PATH
+if [ -d "$HOME/.local/node" ]
 then
-  PATH=~/.local/node/bin:$PATH
+  PATH=$HOME/.local/node/bin:$PATH
   export PATH
 fi
 
@@ -46,9 +46,9 @@ export TERM=xterm-256color
 umask 022
 
 # If promptline.vim was used then create airline prompt
-if [ -f $HOME/.bash_prompt.sh ]
+if [ -f "$HOME/.bash_prompt.sh" ]
 then
-  source ~/.bash_prompt.sh
+  source "$HOME/.bash_prompt.sh"
 fi
 
 LANG=C.UTF-8; export LANG
