@@ -26,6 +26,7 @@ vim_plugins:
   - {repo: 'tpope/vim-surround', version: 'master'}
   - {repo: 'github/copilot.vim', version: 'release'}
   - {repo: '907th/vim-auto-save', version: 'master'}
+  - {repo: 'ryanoasis/vim-devicons', version: 'master'}
 vim_colors:
   - gosukiwi/vim-atom-dark/master/colors/atom-dark-256.vim
   - baskerville/bubblegum/master/colors/bubblegum-256-dark.vim
