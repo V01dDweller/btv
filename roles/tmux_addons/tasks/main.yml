@@ -11,6 +11,11 @@
     repo: https://github.com/tmux-plugins/tpm
     dest: ~/.tmux/plugins/tpm
 
+- name: Cloning tmux-cluster plugin from GitHub # noqa: latest
+  ansible.builtin.git:
+    repo: https://github.com/davidscholberg/tmux-cluster
+    dest: ~/.tmux/plugins/tmux-cluster
+
 - name: Copying Tmux files
   ansible.builtin.copy:
     src: '{{ item }}'
