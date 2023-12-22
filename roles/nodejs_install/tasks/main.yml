@@ -15,6 +15,7 @@
 
 - name: Installing NodesJS for EL Linux
   ansible.builtin.include_tasks: almalinux.yml
-  when: detected_os is search('AlmaLinux 8')
+  when: detected_os is search('AlmaLinux 8') or
+        detected_os is search('AlmaLinux 9')
 ...
 # vim: filetype=ansible syntax=yaml.ansible number relativenumber colorcolumn=80
