@@ -20,44 +20,47 @@
   loop_control:
     label: Creating ~/.vim/{{ item }} directory
 
-- name: Creating Vim pack directories
-  ansible.builtin.file:
-    path: '{{ item }}'
-    state: directory
-    mode: '0755'
-  loop:
-    - '{{ vim_coc_dir }}'
-    - '{{ vim_copilot_dir }}'
-  loop_control:
-    label: Creating {{ item }} directory
+- name: Installing Coc and Copilot
+  block:
+  when: not detected_os is search('CentOS 7')
+    - name: Creating Vim pack directories
+      ansible.builtin.file:
+        path: '{{ item }}'
+        state: directory
+        mode: '0755'
+      loop:
+        - '{{ vim_coc_dir }}'
+        - '{{ vim_copilot_dir }}'
+      loop_control:
+        label: Creating {{ item }} directory
 
-- name: Cloning Coc repo
-  ansible.builtin.git:
-    repo: https://github.com/neoclide/coc.nvim.git
-    depth: 1
-    version: release
-    dest: '{{ vim_coc_dir }}/coc.nvim'
+    - name: Cloning Coc repo
+      ansible.builtin.git:
+        repo: https://github.com/neoclide/coc.nvim.git
+        depth: 1
+        version: release
+        dest: '{{ vim_coc_dir }}/coc.nvim'
 
-- name: Installing NodeJS
-  ansible.builtin.include_role:
-    name: nodejs_install
-  tags: node
+    - name: Installing NodeJS for Coc
+      ansible.builtin.include_role:
+        name: nodejs_install
+      tags: node
 
-- name: Installing vim-coc plugin
-  ansible.builtin.shell: |
-    set -o pipefail
-    /usr/local/bin/vim -c "helptags coc.nvim/doc/ | q"
-  args:
-    chdir: '{{ vim_coc_dir }}'
-    executable: /bin/bash
-    creates: ~/.config/coc
+    - name: Installing vim-coc plugin
+      ansible.builtin.shell: |
+        set -o pipefail
+        /usr/local/bin/vim -c "helptags coc.nvim/doc/ | q"
+      args:
+        chdir: '{{ vim_coc_dir }}'
+        executable: /bin/bash
+        creates: ~/.config/coc
 
-- name: Cloning copilot.vim repo
-  ansible.builtin.git:
-    repo: https://github.com/github/copilot.vim.git
-    depth: 1
-    version: release
-    dest: '{{ vim_copilot_dir }}/copilot.vim'
+    - name: Cloning copilot.vim repo
+      ansible.builtin.git:
+        repo: https://github.com/github/copilot.vim.git
+        depth: 1
+        version: release
+        dest: '{{ vim_copilot_dir }}/copilot.vim'
 
 - name: Downloading Pathogen from GitHub
   ansible.builtin.get_url:
