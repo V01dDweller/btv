@@ -1,0 +1,6 @@
+# file: roles/nerd_font_install/handlers/main.yml
+---
+- name: Reload font cache
+  ansible.builtin.command: fc-cache -f -v
+  become: true
+...

@@ -1,0 +1,32 @@
+# file: roles/nerd_font_install/tasks/main.yml
+---
+- name: Gathing facts
+  ansible.builtin.setup:
+    gather_subset: min
+
+- name: Setting user facts
+  ansible.builtin.set_fact:
+    font_user: '{{ target_user | default(ansible_user_id) }}'
+    font_group: '{{ target_group | default(ansible_user_id) }}'
+
+- name: Creating font directory
+  ansible.builtin.file:
+    path: '/home/{{ font_user }}/{{ item }}'
+    state: directory
+    owner: '{{ font_user }}'
+    group: '{{ font_group }}'
+    mode: '0755'
+  loop:
+    - '.local'
+    - '.local/share'
+    - '.local/share/fonts'
+
+- name: Downloading fonts
+  ansible.builtin.unarchive:
+    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip
+    remote_src: true
+    dest: /home/{{ font_user }}/.local/share/fonts
+    creates: /home/{{ font_user }}/.local/share/fonts/README.md
+  notify: Reload font cache
+...
+# vim: ft=ansible syntax=yaml.ansible nu nowrap relativenumber colorcolumn=80
