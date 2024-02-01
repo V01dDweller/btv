@@ -21,8 +21,8 @@
     label: Creating ~/.vim/{{ item }} directory
 
 - name: Installing Coc and Copilot
-  block:
   when: not detected_os is search('CentOS 7')
+  block:
     - name: Creating Vim pack directories
       ansible.builtin.file:
         path: '{{ item }}'
