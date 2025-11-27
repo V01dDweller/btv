@@ -391,6 +391,18 @@ let g:netrw_bufsettings = 'nomodifiable nomodified readonly nobuflisted nowrap n
 let ghregex='\(^\|\s\s\)\zs\.\S\+'
 let g:netrw_list_hide+=ghregex
 
+"......................... Plugins .........................."
+" Enable plugins
+if isdirectory("$VIMPLUGINS")
+  filetype plugin on
+endif
+
+" Load Pathogen, if this is the cli and it's there
+if !has('gui_running') && !empty(glob("~/.vim/autoload/pathogen.vim"))
+  execute pathogen#infect()
+  Helptags
+endif
+
 "....................... Color Scheme ......................."
 let g:LightsOn = 0
 if !has('gui_running') && !empty(glob("~/.vim/colors/PaperColor.vim"))
