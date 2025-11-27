@@ -428,7 +428,7 @@ endif
 " " Uncomment this block to default to dark background
 " color PaperColor
 " set background=dark
-" if !empty(glob("~/.vim/bundle/ale"))
+" if !empty(glob("$VIMPLUGINS/ale"))
 "   highlight ALEWarning ctermbg=Yellow ctermfg=Black
 "   highlight ALEError ctermbg=Red ctermfg=Black
 "   highlight ALEWarningSign ctermfg=Yellow
@@ -437,7 +437,7 @@ endif
 
 "......................... Plugins .........................."
 " Enable plugins
-if isdirectory("~/.vim/bundle")
+if isdirectory("$VIMPLUGINS")
   filetype plugin on
 endif
 
@@ -448,7 +448,7 @@ if !has('gui_running') && !empty(glob("~/.vim/autoload/pathogen.vim"))
 endif
 
 " ALE Icons and highlights
-if !empty(glob("~/.vim/bundle/ale"))
+if !empty(glob("$VIMPLUGINS/ale"))
   let g:ale_sign_error = '✗▐'
   let g:ale_sign_warning = '▲▐'
   let g:ale_set_highlights = 1
@@ -465,7 +465,7 @@ else
 endif
 
 " GitGutter
-if !empty(glob("~/.vim/bundle/vim-gitgutter"))
+if !empty(glob("$VIMPLUGINS/vim-gitgutter"))
   let g:gitgutter_sign_added              = '+▐'
   let g:gitgutter_sign_modified           = '~▐'
   let g:gitgutter_sign_removed            = '-▐'
