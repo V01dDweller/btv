@@ -563,7 +563,7 @@ function! GetVisual()
     endtry
 endfunction
 
-fun! CenterMe()
+function! CenterMe()
     let v = GetVisual()
     "let l = getline('.')
     let lre = '^\zs\s*\ze\S'
