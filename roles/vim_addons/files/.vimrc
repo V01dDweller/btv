@@ -580,6 +580,6 @@ function! CenterMe()
     normal! gvx"vP
     let @v = v_save
     let &virtualedit = ve_save
-endf
+endfunction
 
 " vim: nospell number nowrap
