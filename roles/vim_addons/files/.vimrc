@@ -267,7 +267,7 @@ function! ToggleShade()
     set background=dark
     let g:LightsOn = 0
   else
-    set background=light
+    set background="light"
     let g:LightsOn = 1
   endif
 endfunction
