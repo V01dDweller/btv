@@ -549,13 +549,13 @@ autocmd OptionSet background hi! link HL_RltvNmbr_Positive Identifier
 " Center a selection
 " Reference: https://stackoverflow.com/questions/26137838/vim-centering-text-within-selection
 function! GetVisual()
-    try
-        let v_save = @v
-        normal! gv"vy
-        return @v
-    finally
-        let @v = v_save
-    endtry
+  try
+    let v_save = @v
+    normal! gv"vy
+    return @v
+  finally
+    let @v = v_save
+  endtry
 endfunction
 
 function! CenterMe()
