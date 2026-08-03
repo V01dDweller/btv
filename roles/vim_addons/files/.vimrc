@@ -514,6 +514,8 @@ if exists(':NERDTree')
   autocmd BufWinEnter * if &buftype != 'quickfix' | if getcmdwintype() == '' | silent NERDTreeMirror | endif | endif
 endif
 
+let NERDTreeCascadeSingleChildDir=0
+
 " NERDTree minimal UI
 let NERDTreeMinimalUI=1
 
