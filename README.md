@@ -1,5 +1,16 @@
 # btv (Bash, Tmux and Vim)
 
+## WARNING: Old Project
+
+*The project dates back to the final years of Red Hat Enterprise Linux 7 /
+CentOS 7 which were version locked to Vim 7.x and Tmux 2.x. The priority was
+to clone the source code for the latest versions of Vim 8.x/9.x, and Tmux 3.x,
+install build tools then build them from scratch. As of the summer of 2026,
+Vim 9 and Tmux 3.x are readily available in nearly every package manager. The
+project may have value for demonstrating Ansible, but it has not been tested
+in a while. My `.vimrc`, `.tmuxrc` and `.bashxx` files are still current,
+otherwise use at your own risk.*
+
 This is the Ansible version of my
 [dotfiles](https://github.com/V01dDweller/dotfiles) project. It uses Ansible
 to:
